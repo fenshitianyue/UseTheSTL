@@ -22,10 +22,10 @@ public:
     swap(s); 
     return *this;
   }
-  String& operator=(String&& s){
-    swap(s);
-    return *this;
-  }
+  //String& operator=(String&& s){
+  //  swap(s);
+  //  return *this;
+  //}
   //移动构造函数
   String(String&& s) : data_(s.data_){
     s.data_ = nullptr;
@@ -46,7 +46,26 @@ public:
   void swap(String& s){
     std::swap(data_, s.data_);
   }
+  //operator== 接口
+  //operator< 接口
+  //operator[] 接口
 private:
   char* data_;
 };
+
+//test case
+//#include <iostream>
+//#include "explain_string.hpp"
+//using namespace std;
+//
+//int main() {
+//  String s1("hello"); 
+//  String s2;
+//  s2 = String("world");
+//  cout << s1.c_str() << " " << s2.c_str() << endl;
+//  cout << "s1.size() : " << s1.size() << endl;
+//  cout << "s2.size() : " << s2.size() << endl;
+//  
+//  return 0;
+//}
 
